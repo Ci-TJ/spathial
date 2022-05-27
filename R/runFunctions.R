@@ -194,6 +194,7 @@ spathialPrefiltering <- function(X, boundary_ids){
 #' @export
 spathialWay <- function(X, boundary_ids, NC=50){
   spathial_res <- compute_spathial(X, boundary_ids, NC)
+  spathial_res <- spathial_res[[1]] #Seager
   colnames(spathial_res) <- colnames(X)
   rownames(spathial_res) <- paste("ppath",1:nrow(spathial_res))
   return(spathial_res)
