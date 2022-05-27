@@ -27,11 +27,22 @@ compute_spathial <- function(X, boundary_ids, NC){
      utils::setTxtProgressBar(pb, i)
    }
   close(pb)
-
+  ##Seager
+  l1 <- list()
+  l2 <- list()
+  for(i in 1:length(models)){
+      l1[paste0("model",i)] <- models[[i]][1]
+      l2[paste0("model",i)] <- models[[i]][2]
+    
+  }
+  models <- l1
+  labels_kmeans <- l2
+  ##Seager
   print("Path selection...")
   W_dst_var <- rkm_MS_pathvar(models, s_span, X)
   s_elb_id <- find_elbow(cbind(s_span, W_dst_var))
   ppath <- models[[s_elb_id]]
+  ppath <- list(ppath, labels_kmeans[[s_elb_id]]) #Seager
   return(ppath)
 }
 
