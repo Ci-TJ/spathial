@@ -112,7 +112,7 @@ rkm <- function(X, XX, init_W, s, plot_ax=FALSE){
     # Check for convergence
     converged<-all(u_new==u)
     u<-u_new
-    W$cluster <- u #Seager
+    W <- list(W, u) #Seager
   }
   return(W)
 }
