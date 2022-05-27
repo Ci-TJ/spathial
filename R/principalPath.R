@@ -21,7 +21,8 @@ compute_spathial <- function(X, boundary_ids, NC){
    for(i in 1:length(s_span)){
      s<-s_span[i]
      W<-rkm(X,XX, init_W,s,plot_ax=FALSE)
-     init_W<-W
+     #init_W<-W
+     init_W <- W[[1]] #Seager
      models[[as.character(s)]]<-W
      utils::setTxtProgressBar(pb, i)
    }
@@ -111,6 +112,7 @@ rkm <- function(X, XX, init_W, s, plot_ax=FALSE){
     # Check for convergence
     converged<-all(u_new==u)
     u<-u_new
+    W <- list(W, u) #Seager
   }
   return(W)
 }
