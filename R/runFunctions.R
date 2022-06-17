@@ -270,7 +270,7 @@ spathialLabels <- function(X, X_labels, spathial_res){
 #' #Run spathialPlot with spathial_res
 #' spathialPlot(X, X_labels, boundary_ids, spathial_res, perplexity_value=30)
 #' @export
-spathialPlot <- function(X, X_labels, boundary_ids, spathial_res, perplexity_value=NULL, mask=NULL, title = NULL, S_inset = c(-0.35,0), S_mar = c(5.1, 4.1, 4.1 8.1),S_cex = 2, ...){
+spathialPlot <- function(X, X_labels, boundary_ids, spathial_res, perplexity_value=NULL, mask=NULL, title = NULL, S_inset = c(-0.35,0), S_mar = c(5.1, 4.1, 4.1, 8.1),S_cex = 2, ...){
   set.seed(123)
   oldpar <- graphics::par(no.readonly = TRUE)
   on.exit(graphics::par(oldpar))
