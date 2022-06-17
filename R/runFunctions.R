@@ -270,7 +270,7 @@ spathialLabels <- function(X, X_labels, spathial_res){
 #' #Run spathialPlot with spathial_res
 #' spathialPlot(X, X_labels, boundary_ids, spathial_res, perplexity_value=30)
 #' @export
-spathialPlot <- function(X, X_labels, boundary_ids, spathial_res, perplexity_value=NULL, mask=NULL, title = NULL, S_inset = c(-0.35,0), S_cex = 2, ...){
+spathialPlot <- function(X, X_labels, boundary_ids, spathial_res, perplexity_value=NULL, mask=NULL, title = NULL, S_inset = c(-0.35,0), S_mar = c(5.1, 4.1, 4.1 8.1),S_cex = 2, ...){
   set.seed(123)
   oldpar <- graphics::par(no.readonly = TRUE)
   on.exit(graphics::par(oldpar))
@@ -314,7 +314,7 @@ spathialPlot <- function(X, X_labels, boundary_ids, spathial_res, perplexity_val
       legend_pch = c(unique(pch_val), "x", "*")
     }
 
-    graphics::par(mar=c(5.1, 4.1, 4.1, 8.1), xpd=TRUE)
+    graphics::par(mar= S_mar, xpd=TRUE)
     graphics::plot(X[,1],X[,2], col=colors_labels, pch=pch_val, xlab=colnames(X)[1], ylab=colnames(X)[2], main = title)
     if(!is.null(mask)){
       X_garbage <- X[!mask,]
@@ -364,7 +364,7 @@ spathialPlot <- function(X, X_labels, boundary_ids, spathial_res, perplexity_val
       legend_pch = c(unique(pch_val), "x", "*")
     }
 
-    graphics::par(mar=c(5.1, 4.1, 4.1, 8.1), xpd=TRUE)
+    graphics::par(mar= S_mar, xpd=TRUE)
     graphics::plot(points_2D[,1],points_2D[,2], xlab="tsne1", ylab="tsne2", col=colors_labels, pch=pch_val, main=title)
     if(!is.null(mask)){
       graphics::points(X_garbage_2D[,1],X_garbage_2D[,2], col="gray", pch="x")
