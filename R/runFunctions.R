@@ -374,7 +374,7 @@ spathialPlot <- function(X, X_labels, boundary_ids, spathial_res, perplexity_val
     }
     graphics::points(boundary_ids_2D[,1],boundary_ids_2D[,2], pch="x",col="black",cex=4)
     graphics::lines(ppath_2D[,1], ppath_2D[,2],lwd=3,col="blue",type="o",pch="*", cex=2)
-    graphics::legend("topright", inset= S_inset, legend=legend_names, col=legend_color, pch=legend_pch. cex = S_cex)
+    graphics::legend("topright", inset= S_inset, legend=legend_names, col=legend_color, pch=legend_pch, cex = S_cex)
   }
 }
 
