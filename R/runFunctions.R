@@ -270,7 +270,7 @@ spathialLabels <- function(X, X_labels, spathial_res){
 #' #Run spathialPlot with spathial_res
 #' spathialPlot(X, X_labels, boundary_ids, spathial_res, perplexity_value=30)
 #' @export
-spathialPlot <- function(X, X_labels, boundary_ids, spathial_res, perplexity_value=NULL, mask=NULL, title = NULL, S_inset = c(-0.35,0), S_mar = c(5.1, 4.1, 4.1, 8.1),S_cex = 2, ...){
+spathialPlot <- function(X, X_labels, boundary_ids, spathial_res, perplexity_value=NULL, mask=NULL, title = NULL, S_inset = c(-0.35,0), S_mar = c(5.1, 4.1, 4.1, 8.1),S_cex = 1, ...){
   set.seed(123)
   oldpar <- graphics::par(no.readonly = TRUE)
   on.exit(graphics::par(oldpar))
@@ -325,8 +325,8 @@ spathialPlot <- function(X, X_labels, boundary_ids, spathial_res, perplexity_val
       legend_pch = c(legend_pch, "x")
     }
     graphics::points(boundaries[,1],boundaries[,2], pch="x",col="black",cex=4)
-    graphics::lines(spathial_res[,1], spathial_res[,2],lwd=3,col="red",type="o",pch="*", cex=S_cex) #Seager
-    graphics::legend("topright", inset=S_inset, legend=legend_names, col=legend_color, pch=legend_pch)
+    graphics::lines(spathial_res[,1], spathial_res[,2],lwd=3,col="red",type="o",pch="*", cex=2) #Seager
+    graphics::legend("topright", inset=S_inset, legend=legend_names, col=legend_color, pch=legend_pch, cex = S_cex)
   }else{
     if(is.null(perplexity_value)){
       perplexity_value<-ceiling(nrow(X)*3/50)
@@ -373,8 +373,8 @@ spathialPlot <- function(X, X_labels, boundary_ids, spathial_res, perplexity_val
       legend_pch = c(legend_pch, "x")
     }
     graphics::points(boundary_ids_2D[,1],boundary_ids_2D[,2], pch="x",col="black",cex=4)
-    graphics::lines(ppath_2D[,1], ppath_2D[,2],lwd=3,col="blue",type="o",pch="*", cex=S_cex)
-    graphics::legend("topright", inset= S_inset, legend=legend_names, col=legend_color, pch=legend_pch)
+    graphics::lines(ppath_2D[,1], ppath_2D[,2],lwd=3,col="blue",type="o",pch="*", cex=2)
+    graphics::legend("topright", inset= S_inset, legend=legend_names, col=legend_color, pch=legend_pch. cex = S_cex)
   }
 }
 
