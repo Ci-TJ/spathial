@@ -60,7 +60,7 @@ rkm <- function(X, XX, init_W, s, plot_ax=FALSE){
   B<-matrix(0,nrow=NC,ncol=d)
   B[1,]<-as.numeric(boundary[1,])
   B[nrow(B),]<-as.numeric(boundary[2,])
-  rownames(init_W)[2:(nrow(init_W)-1)] <- paste0("WP", str_pad(1:(nrow(init_W) - 2),nchar(as.character(nrow(init_W) - 2)),"left",0)) #Seager02
+  rownames(init_W)[2:(nrow(init_W)-1)] <- paste0("WP", stringr::str_pad(1:(nrow(init_W) - 2),nchar(as.character(nrow(init_W) - 2)),"left",0)) #Seager02
   rownames(B)<-rownames(init_W)[2:(nrow(init_W)-1)]
 
   # Construct regularizer hessian
